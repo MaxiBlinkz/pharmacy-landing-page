@@ -3,7 +3,7 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, Copy, Loader2, AlertCircle, ShieldCheck, ArrowLeft, Download } from 'lucide-react';
 
-const API_URL = import.meta.env.VITE_LICENSE_API_URL || "http://localhost:3001";
+const API_URL = import.meta.env.VITE_LICENSE_API_URL || "https://pharmacy-license-api.vercel.app/";
 
 export const PurchaseCompletion = () => {
     const [searchParams] = useSearchParams();
