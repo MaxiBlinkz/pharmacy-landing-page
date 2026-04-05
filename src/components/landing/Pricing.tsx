@@ -30,7 +30,7 @@ const BASE_PRICES = {
 type BillingCycle = 'monthly' | 'yearly' | 'lifetime';
 type PlanId = 'standard' | 'server' | 'cloud';
 
-const API_URL = import.meta.env.VITE_LICENSE_API_URL || "https://pharmacy-license-api.vercel.app/";
+const API_URL = import.meta.env.VITE_LICENSE_API_URL || "https://pharmacy-license-api.vercel.app";
 
 export const Pricing = ({ formatPrice, currency }: PricingProps) => {
     const [billingCycle, setBillingCycle] = useState<BillingCycle>('yearly');
