@@ -22,8 +22,8 @@ function App() {
               <>
                 <Hero />
                 <Features />
-                <Pricing formatPrice={formatPrice} currency={currency} />
                 <DownloadSection />
+                <Pricing formatPrice={formatPrice} currency={currency} />
                 <CloudTeaser />
               </>
             } />
