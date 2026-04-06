@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Shield, Zap, Sparkles } from "lucide-react";
+import { ShieldCheck, Download, Shield, Zap, Sparkles } from "lucide-react";
 
 export const Hero = () => {
     const downloadLink = import.meta.env.VITE_APP_DOWNLOAD_LINK || "#download";
@@ -62,19 +62,26 @@ export const Hero = () => {
                                 href={downloadLink}
                                 target={downloadLink.startsWith('http') ? "_blank" : "_self"}
                                 rel={downloadLink.startsWith('http') ? "noopener noreferrer" : ""}
-                                className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-2xl transition-all shadow-xl shadow-blue-500/25 hover:shadow-2xl hover:shadow-blue-500/40 hover:-translate-y-1 flex items-center justify-center gap-2"
+                                className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-2xl transition-all shadow-xl shadow-blue-500/25 hover:shadow-2xl hover:shadow-blue-500/40 hover:-translate-y-1 flex items-center justify-center gap-2 group"
                             >
-                                <Download className="w-5 h-5" />
+                                <Download className="w-5 h-5 group-hover:scale-110 transition-transform" />
                                 Download Axeon Now
                             </a>
                             <a
-                                href="#features"
+                                href="#pricing"
                                 className="w-full sm:w-auto px-8 py-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md text-slate-800 border border-slate-200/50 font-bold rounded-2xl hover:bg-white transition-all dark:text-white dark:border-slate-800 dark:hover:bg-slate-800 flex items-center justify-center gap-2 hover:-translate-y-1 shadow-lg hover:shadow-xl"
                             >
-                                Explore Features
-                                <ArrowRight className="w-5 h-5" />
+                                <ShieldCheck className="w-5 h-5 text-blue-600" />
+                                Get License
                             </a>
                         </motion.div>
+                        <motion.p 
+                            variants={itemVariants}
+                            className="text-xs font-bold text-slate-500 uppercase tracking-[0.1em] mt-6 flex items-center justify-center gap-2"
+                        >
+                            <span className="w-2 h-2 rounded-full bg-green-500"></span>
+                            14-Day Free Trial Included — No Credit Card Required
+                        </motion.p>
                     </motion.div>
                 </div>
 

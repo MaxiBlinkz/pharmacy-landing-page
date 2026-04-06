@@ -164,10 +164,16 @@ export const Pricing = ({ formatPrice, currency }: PricingProps) => {
                         Simple, Transparent <br />
                         <span className="text-blue-700 dark:text-blue-400">Pricing</span>
                     </h2>
-                    <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
+                    <p className="text-lg text-slate-600 dark:text-slate-400 mb-4">
                         Choose the license that fits your pharmacy size. No hidden fees.
                         Prices shown in {currency}.
                     </p>
+                    <div className="flex items-center justify-center gap-2 mb-8">
+                        <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold rounded-full border border-green-200 dark:border-green-800 uppercase tracking-wider">
+                            14-Day Free Trial Included
+                        </span>
+                        <span className="text-sm text-slate-500 dark:text-slate-400 font-medium">with every license</span>
+                    </div>
 
                     {/* Billing Cycle Toggle */}
                     <div className="inline-flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg p-1 space-x-1">
@@ -349,7 +355,7 @@ export const Pricing = ({ formatPrice, currency }: PricingProps) => {
                                         </button>
                                         <p className="text-[10px] text-center text-slate-500 dark:text-slate-400 mt-4 leading-relaxed">
                                             By clicking "Complete Purchase", you will be redirected to our secure payment processor, Paystack.
-                                            A license code and file will be sent to your email upon successful payment.
+                                            A 14-day trial starts immediately, and your license code will be sent to your email.
                                         </p>
                                     </div>
                                 </form>

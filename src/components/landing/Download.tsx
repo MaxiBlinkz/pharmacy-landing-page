@@ -52,17 +52,17 @@ export const DownloadSection = () => {
                         href={downloadExe}
                         target={downloadExe.startsWith('http') ? "_blank" : "_self"}
                         rel={downloadExe.startsWith('http') ? "noopener noreferrer" : ""}
-                        className="group relative p-8 bg-white/70 backdrop-blur-md dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-[2rem] shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-blue-500/10 hover:border-blue-300 dark:shadow-none transition-all duration-300 overflow-hidden flex flex-col items-center text-center"
+                        className="group relative p-6 md:p-8 bg-white/70 backdrop-blur-md dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-[2rem] shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-blue-500/10 hover:border-blue-300 dark:shadow-none transition-all duration-300 overflow-hidden flex flex-col items-center text-center"
                     >
                         <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                        <div className="w-20 h-20 mb-6 rounded-2xl bg-gradient-to-br from-blue-100 to-blue-50 text-blue-600 dark:from-blue-900/40 dark:to-blue-900/10 dark:text-blue-400 flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform duration-300">
-                            <Monitor className="w-10 h-10" />
+                        <div className="w-14 h-14 md:w-20 md:h-20 mb-4 md:mb-6 rounded-2xl bg-gradient-to-br from-blue-100 to-blue-50 text-blue-600 dark:from-blue-900/40 dark:to-blue-900/10 dark:text-blue-400 flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform duration-300">
+                            <Monitor className="w-7 h-7 md:w-10 md:h-10" />
                         </div>
-                        <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-2 tracking-tight group-hover:text-blue-600 transition-colors">Windows Setup</h3>
-                        <p className="text-slate-500 dark:text-slate-400 font-medium mb-8">Works seamlessly on Windows 10 & 11 (x64 architectures).</p>
+                        <h3 className="text-xl md:text-2xl font-black text-slate-900 dark:text-white mb-2 tracking-tight group-hover:text-blue-600 transition-colors">Windows Setup</h3>
+                        <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 font-medium mb-6 md:mb-8">Works seamlessly on Windows 10 & 11 (x64 architectures).</p>
                         
-                        <div className="mt-auto w-full py-4 bg-slate-50 dark:bg-slate-800 rounded-xl font-bold flex items-center justify-center gap-2 text-slate-800 dark:text-slate-200 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                            <Download className="w-5 h-5" /> Download .exe
+                        <div className="mt-auto w-full py-3 md:py-4 bg-slate-50 dark:bg-slate-800 rounded-xl font-bold flex items-center justify-center gap-2 text-slate-800 dark:text-slate-200 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                            <Download className="w-4 h-4 md:w-5 md:h-5" /> Download .exe
                         </div>
                     </motion.a>
 
@@ -76,17 +76,17 @@ export const DownloadSection = () => {
                         href={downloadMsStore}
                         target={downloadMsStore.startsWith('http') ? "_blank" : "_self"}
                         rel={downloadMsStore.startsWith('http') ? "noopener noreferrer" : ""}
-                        className="group relative p-8 bg-white/70 backdrop-blur-md dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-[2rem] shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-indigo-500/10 hover:border-indigo-300 dark:shadow-none transition-all duration-300 overflow-hidden flex flex-col items-center text-center"
+                        className="group relative p-6 md:p-8 bg-white/70 backdrop-blur-md dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-[2rem] shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-indigo-500/10 hover:border-indigo-300 dark:shadow-none transition-all duration-300 overflow-hidden flex flex-col items-center text-center"
                     >
                         <div className="absolute inset-0 bg-gradient-to-b from-indigo-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                        <div className="w-20 h-20 mb-6 rounded-2xl bg-gradient-to-br from-indigo-100 to-indigo-50 text-indigo-600 dark:from-indigo-900/40 dark:to-indigo-900/10 dark:text-indigo-400 flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform duration-300">
-                            <Store className="w-10 h-10" />
+                        <div className="w-14 h-14 md:w-20 md:h-20 mb-4 md:mb-6 rounded-2xl bg-gradient-to-br from-indigo-100 to-indigo-50 text-indigo-600 dark:from-indigo-900/40 dark:to-indigo-900/10 dark:text-indigo-400 flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform duration-300">
+                            <Store className="w-7 h-7 md:w-10 md:h-10" />
                         </div>
-                        <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-2 tracking-tight group-hover:text-indigo-600 transition-colors">Microsoft Store</h3>
-                        <p className="text-slate-500 dark:text-slate-400 font-medium mb-8">Secure, automated updates through the official Microsoft Store.</p>
+                        <h3 className="text-xl md:text-2xl font-black text-slate-900 dark:text-white mb-2 tracking-tight group-hover:text-indigo-600 transition-colors">Microsoft Store</h3>
+                        <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 font-medium mb-6 md:mb-8">Secure, automated updates through the official Microsoft Store.</p>
                         
-                        <div className="mt-auto w-full py-4 bg-slate-50 dark:bg-slate-800 rounded-xl font-bold flex items-center justify-center gap-2 text-slate-800 dark:text-slate-200 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
-                            <Download className="w-5 h-5" /> Get App
+                        <div className="mt-auto w-full py-3 md:py-4 bg-slate-50 dark:bg-slate-800 rounded-xl font-bold flex items-center justify-center gap-2 text-slate-800 dark:text-slate-200 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                            <Download className="w-4 h-4 md:w-5 md:h-5" /> Get App
                         </div>
                     </motion.a>
 
@@ -100,17 +100,17 @@ export const DownloadSection = () => {
                         href={downloadMacOs}
                         target={downloadMacOs.startsWith('http') ? "_blank" : "_self"}
                         rel={downloadMacOs.startsWith('http') ? "noopener noreferrer" : ""}
-                        className="group relative p-8 bg-white/70 backdrop-blur-md dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-[2rem] shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-teal-500/10 hover:border-teal-300 dark:shadow-none transition-all duration-300 overflow-hidden flex flex-col items-center text-center"
+                        className="group relative p-6 md:p-8 bg-white/70 backdrop-blur-md dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-[2rem] shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-teal-500/10 hover:border-teal-300 dark:shadow-none transition-all duration-300 overflow-hidden flex flex-col items-center text-center"
                     >
                         <div className="absolute inset-0 bg-gradient-to-b from-teal-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                        <div className="w-20 h-20 mb-6 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-50 text-slate-800 dark:from-slate-800 dark:to-slate-700 dark:text-white flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform duration-300">
-                            <Command className="w-10 h-10" />
+                        <div className="w-14 h-14 md:w-20 md:h-20 mb-4 md:mb-6 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-50 text-slate-800 dark:from-slate-800 dark:to-slate-700 dark:text-white flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform duration-300">
+                            <Command className="w-7 h-7 md:w-10 md:h-10" />
                         </div>
-                        <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-2 tracking-tight group-hover:text-teal-600 transition-colors">macOS Build</h3>
-                        <p className="text-slate-500 dark:text-slate-400 font-medium mb-8">Universal binary for incredibly fast Apple Silicon & Intel support.</p>
+                        <h3 className="text-xl md:text-2xl font-black text-slate-900 dark:text-white mb-2 tracking-tight group-hover:text-teal-600 transition-colors">macOS Build</h3>
+                        <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 font-medium mb-6 md:mb-8">Universal binary for incredibly fast Apple Silicon & Intel support.</p>
                         
-                        <div className="mt-auto w-full py-4 bg-slate-50 dark:bg-slate-800 rounded-xl font-bold flex items-center justify-center gap-2 text-slate-800 dark:text-slate-200 group-hover:bg-teal-600 group-hover:text-white transition-colors">
-                            <Download className="w-5 h-5" /> Download .dmg
+                        <div className="mt-auto w-full py-3 md:py-4 bg-slate-50 dark:bg-slate-800 rounded-xl font-bold flex items-center justify-center gap-2 text-slate-800 dark:text-slate-200 group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                            <Download className="w-4 h-4 md:w-5 md:h-5" /> Download .dmg
                         </div>
                     </motion.a>
                 </div>
