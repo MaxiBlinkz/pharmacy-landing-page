@@ -1,9 +1,46 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Download, Monitor, Store, Command, Shield, Zap, CheckCircle2 } from "lucide-react";
+import { Download, Monitor, Store, Command, Shield, Zap, CheckCircle2, Loader2 } from "lucide-react";
 
 export const DownloadSection = () => {
-    const downloadExe = import.meta.env.VITE_APP_DOWNLOAD_LINK_EXE || "#";
-    const downloadMsStore = import.meta.env.VITE_APP_DOWNLOAD_LINK_MSSTORE || "#";
+    const [isLoading, setIsLoading] = useState(true);
+    const [links, setLinks] = useState({
+        exe: import.meta.env.VITE_APP_DOWNLOAD_LINK_EXE || "#",
+        msStore: import.meta.env.VITE_APP_DOWNLOAD_LINK_MSSTORE || "#",
+        macos: import.meta.env.VITE_APP_DOWNLOAD_LINK_MACOS || "#",
+        version: "v1.0.4"
+    });
+
+    useEffect(() => {
+        const fetchLatestRelease = async () => {
+            try {
+                // Fetch update.json from Supabase Storage (public)
+                // Appending a timestamp to avoid stale cache from Supabase CDN
+                const response = await fetch(
+                    `https://xssjirycnvkqrwleilkh.supabase.co/storage/v1/object/public/axeon-setup/update.json?t=${Date.now()}`
+                );
+                
+                if (!response.ok) throw new Error("Failed to fetch release manifest");
+                
+                const data = await response.json();
+                
+                if (data.platforms) {
+                    setLinks({
+                        exe: data.platforms["windows-x86_64"]?.url || links.exe,
+                        msStore: links.msStore,
+                        macos: data.platforms["darwin-aarch64"]?.url || data.platforms["darwin-x86_64"]?.url || links.macos,
+                        version: data.version || links.version
+                    });
+                }
+            } catch (error) {
+                console.error("Error fetching latest download links:", error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchLatestRelease();
+    }, []);
 
     return (
         <section id="download" className="py-24 bg-slate-50 dark:bg-slate-950 relative overflow-hidden">
@@ -38,6 +75,7 @@ export const DownloadSection = () => {
                         className="text-lg md:text-xl text-slate-600 dark:text-slate-400 font-medium leading-relaxed"
                     >
                         The ultimate pharmacy management desktop application. Optimized for speed, security, and simplicity.
+                        <span className="block mt-2 text-sm font-bold opacity-75">Latest Stable Release: {links.version}</span>
                     </motion.p>
                 </div>
 
@@ -84,17 +122,22 @@ export const DownloadSection = () => {
                                     <motion.a
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
-                                        href={downloadExe}
+                                        href={links.exe}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex-1 py-4 px-8 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 transition-all text-lg"
+                                        className="flex-1 py-4 px-8 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 transition-all text-lg min-w-[200px]"
                                     >
-                                        <Download className="w-5 h-5" /> Download Now
+                                        {isLoading ? (
+                                            <Loader2 className="w-5 h-5 animate-spin" />
+                                        ) : (
+                                            <Download className="w-5 h-5" />
+                                        )}
+                                        {isLoading ? "Checking Latest..." : "Download Now"}
                                     </motion.a>
                                     <motion.a
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
-                                        href={downloadMsStore}
+                                        href={links.msStore}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="py-4 px-8 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white rounded-2xl font-bold flex items-center justify-center gap-2 transition-all outline-none"
@@ -109,20 +152,29 @@ export const DownloadSection = () => {
                                 <h4 className="text-sm font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-8">Other Platforms</h4>
                                 
                                 <div className="space-y-6">
-                                    <div className="flex items-center justify-between p-6 bg-white dark:bg-slate-800 rounded-[2rem] border border-slate-200/50 dark:border-slate-700/50 shadow-sm transition-all hover:shadow-md">
+                                    <motion.a 
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.98 }}
+                                        href={links.macos}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={`flex items-center justify-between p-6 bg-white dark:bg-slate-800 rounded-[2rem] border border-slate-200/50 dark:border-slate-700/50 shadow-sm transition-all hover:shadow-md hover:border-blue-500/50 group/item ${links.macos === "#" ? "opacity-50 pointer-events-none" : ""}`}
+                                    >
                                         <div className="flex items-center gap-4">
-                                            <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-white flex items-center justify-center border border-slate-200/30 dark:border-slate-600/30">
+                                            <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-white flex items-center justify-center border border-slate-200/30 dark:border-slate-600/30 group-hover/item:bg-blue-600 group-hover/item:text-white transition-colors">
                                                 <Command className="w-6 h-6" />
                                             </div>
                                             <div>
-                                                <p className="font-bold text-slate-900 dark:text-white">macOS Build</p>
-                                                <p className="text-xs text-blue-600 dark:text-blue-400 font-bold uppercase tracking-tight mt-0.5">Coming Soon</p>
+                                                <p className="font-bold text-slate-900 dark:text-white">macOS Native</p>
+                                                <p className="text-xs text-blue-600 dark:text-blue-400 font-bold uppercase tracking-tight mt-0.5">
+                                                    {links.macos === "#" ? "Coming Soon" : "Universal /.dmg"}
+                                                </p>
                                             </div>
                                         </div>
-                                        <div className="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-400 dark:text-slate-500 rounded-lg text-xs font-black uppercase tracking-tighter">
-                                            Stay Tuned
+                                        <div className={`px-4 py-2 rounded-lg text-xs font-black uppercase tracking-tighter transition-colors ${links.macos === "#" ? "bg-slate-100 dark:bg-slate-700 text-slate-400 dark:text-slate-500" : "bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 group-hover/item:bg-blue-600 group-hover/item:text-white"}`}>
+                                            {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : (links.macos === "#" ? "Stay Tuned" : "Download")}
                                         </div>
-                                    </div>
+                                    </motion.a>
 
                                     <div className="p-6 rounded-[2rem] bg-indigo-50/50 dark:bg-indigo-900/10 border border-indigo-100/50 dark:border-indigo-800/30">
                                         <div className="flex items-center gap-3 mb-3">
