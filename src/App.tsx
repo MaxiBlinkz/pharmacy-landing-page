@@ -6,6 +6,7 @@ import { DownloadSection } from './components/landing/Download';
 import { Pricing } from './components/landing/Pricing';
 import { CloudTeaser } from './components/landing/CloudTeaser';
 import { Footer } from './components/landing/Footer';
+import { WebServices } from './components/landing/WebServices';
 import { PurchaseCompletion } from './components/landing/PurchaseCompletion';
 import { useCurrency } from './hooks/useCurrency';
 
@@ -24,6 +25,7 @@ function App() {
                 <Features />
                 <DownloadSection />
                 <Pricing formatPrice={formatPrice} currency={currency} />
+                <WebServices />
                 <CloudTeaser />
               </>
             } />

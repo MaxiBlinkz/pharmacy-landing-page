@@ -19,6 +19,7 @@ export const Navbar = ({ currency, setCurrency }: { currency: Currency, setCurre
     const navLinks = [
         { name: "Features", href: "#features" },
         { name: "Pricing", href: "#pricing" },
+        { name: "Services", href: "#services" },
         { name: "Download", href: "#download" },
     ];
 

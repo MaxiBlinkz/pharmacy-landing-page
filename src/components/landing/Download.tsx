@@ -167,7 +167,7 @@ export const DownloadSection = () => {
                                             <div>
                                                 <p className="font-bold text-slate-900 dark:text-white">macOS Native</p>
                                                 <p className="text-xs text-blue-600 dark:text-blue-400 font-bold uppercase tracking-tight mt-0.5">
-                                                    {links.macos === "#" ? "Coming Soon" : "Universal /.dmg"}
+                                                    {links.macos === "#" ? "Coming Soon" : "macOS"}
                                                 </p>
                                             </div>
                                         </div>
